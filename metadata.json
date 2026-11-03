@@ -1,0 +1,6 @@
+{
+  "name": "KaliMaze - Game Susun Kata Edukatif",
+  "description": "Game edukasi interaktif menyusun kata menjadi kalimat yang benar untuk anak Sekolah Dasar usia 7–12 tahun dengan maskot burung hantu lucu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

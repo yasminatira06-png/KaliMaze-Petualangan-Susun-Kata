@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --font-fredoka: "Fredoka", cursive, sans-serif;
+  --font-nunito: "Nunito", sans-serif;
+}
+
+body {
+  font-family: var(--font-nunito);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-fredoka);
+}
+
+/* 3D Cartoon game buttons and cards */
+.btn-game-orange {
+  background: linear-gradient(180deg, #fbb724 0%, #f59e0b 50%, #d97706 100%);
+  border: 3.5px solid #78350f;
+  box-shadow: 0 6px 0 #78350f, 0 10px 15px rgba(0,0,0,0.2);
+  transition: all 0.1s ease-in-out;
+}
+.btn-game-orange:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #78350f, 0 12px 18px rgba(0,0,0,0.25);
+}
+.btn-game-orange:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #78350f, 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.btn-game-blue {
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 60%, #0369a1 100%);
+  border: 3.5px solid #1e1b4b;
+  box-shadow: 0 6px 0 #1e1b4b, 0 10px 15px rgba(0,0,0,0.25);
+  transition: all 0.1s ease-in-out;
+}
+.btn-game-blue:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #1e1b4b, 0 12px 18px rgba(0,0,0,0.3);
+}
+.btn-game-blue:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #1e1b4b, 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.btn-game-green {
+  background: linear-gradient(180deg, #4ade80 0%, #22c55e 60%, #15803d 100%);
+  border: 3.5px solid #14532d;
+  box-shadow: 0 6px 0 #14532d, 0 10px 15px rgba(0,0,0,0.2);
+  transition: all 0.1s ease-in-out;
+}
+.btn-game-green:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #14532d, 0 12px 18px rgba(0,0,0,0.25);
+}
+.btn-game-green:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #14532d, 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.btn-game-purple {
+  background: linear-gradient(180deg, #c084fc 0%, #9333ea 60%, #7e22ce 100%);
+  border: 3.5px solid #3b0764;
+  box-shadow: 0 6px 0 #3b0764, 0 10px 15px rgba(0,0,0,0.2);
+  transition: all 0.1s ease-in-out;
+}
+.btn-game-purple:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #3b0764;
+}
+
+.card-word {
+  background: linear-gradient(180deg, #ffffff 0%, #fef3c7 100%);
+  border: 3px solid #b45309;
+  box-shadow: 0 4px 0 #b45309, 0 6px 10px rgba(0,0,0,0.08);
+  transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.card-word:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 0 #b45309, 0 10px 15px rgba(0,0,0,0.12);
+}
+.card-word:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 2px 0 #b45309;
+}
+
+.card-word-selected {
+  background: linear-gradient(180deg, #dbeafe 0%, #bfdbfe 100%);
+  border: 3px solid #1d4ed8;
+  box-shadow: 0 4px 0 #1d4ed8, 0 6px 10px rgba(29,78,216,0.15);
+}
+
+@keyframes starGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.9)) drop-shadow(0 0 30px rgba(245, 158, 11, 0.6));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(251, 191, 36, 1)) drop-shadow(0 0 45px rgba(245, 158, 11, 0.8));
+    transform: scale(1.06);
+  }
+}
+
+.animate-star-glow {
+  animation: starGlow 2s infinite ease-in-out;
+}
