@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import mascotOwlImg from '../assets/images/kalimaze_mascot_owl_1793704477582.jpg';
 
 export type OwlMood = 'idle' | 'happy' | 'thinking' | 'celebrate' | 'waving';
 
@@ -18,6 +19,8 @@ export const MascotOwl: React.FC<MascotOwlProps> = ({
   className = '',
   showSpeech = true
 }) => {
+  const [imgError, setImgError] = useState(false);
+
   const sizeClasses = {
     sm: 'w-20 h-20',
     md: 'w-28 h-28 sm:w-32 sm:h-32',
@@ -87,12 +90,41 @@ export const MascotOwl: React.FC<MascotOwlProps> = ({
 
         {/* Mascot Image with round sticker border */}
         <div className="w-full h-full rounded-full p-1 bg-white border-[3.5px] border-amber-900 shadow-[0_5px_0_#78350f] overflow-hidden flex items-center justify-center relative bg-gradient-to-b from-amber-100 to-amber-200">
-          <img
-            src="/src/assets/images/kalimaze_mascot_owl_1793704477582.jpg"
-            alt="Owi Burung Hantu KaliMaze"
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover object-center transform scale-110"
-          />
+          {!imgError ? (
+            <img
+              src={mascotOwlImg || '/assets/images/kalimaze_mascot_owl_1793704477582.jpg'}
+              alt="Owi Burung Hantu KaliMaze"
+              referrerPolicy="no-referrer"
+              onError={() => setImgError(true)}
+              className="w-full h-full object-cover object-center transform scale-110"
+            />
+          ) : (
+            /* Resilient SVG Owl Fallback */
+            <svg viewBox="0 0 100 100" className="w-full h-full p-1">
+              {/* Body */}
+              <ellipse cx="50" cy="54" rx="36" ry="38" fill="#38bdf8" stroke="#1e293b" strokeWidth="4" />
+              {/* Tummy */}
+              <ellipse cx="50" cy="62" rx="22" ry="24" fill="#fde047" stroke="#b45309" strokeWidth="3" />
+              {/* Ears/Tufts */}
+              <polygon points="26,24 38,36 20,38" fill="#f97316" stroke="#1e293b" strokeWidth="3" />
+              <polygon points="74,24 80,38 62,36" fill="#f97316" stroke="#1e293b" strokeWidth="3" />
+              {/* Eyes */}
+              <circle cx="37" cy="45" r="14" fill="#ffffff" stroke="#1e293b" strokeWidth="3.5" />
+              <circle cx="63" cy="45" r="14" fill="#ffffff" stroke="#1e293b" strokeWidth="3.5" />
+              <circle cx="39" cy="45" r="7" fill="#0f172a" />
+              <circle cx="61" cy="45" r="7" fill="#0f172a" />
+              <circle cx="36" cy="42" r="2.5" fill="#ffffff" />
+              <circle cx="58" cy="42" r="2.5" fill="#ffffff" />
+              {/* Beak */}
+              <polygon points="50,48 44,58 56,58" fill="#ea580c" stroke="#1e293b" strokeWidth="2.5" />
+              {/* Cheeks */}
+              <circle cx="28" cy="55" r="4" fill="#f472b6" opacity="0.6" />
+              <circle cx="72" cy="55" r="4" fill="#f472b6" opacity="0.6" />
+              {/* Feet */}
+              <ellipse cx="40" cy="92" rx="7" ry="4" fill="#ea580c" />
+              <ellipse cx="60" cy="92" rx="7" ry="4" fill="#ea580c" />
+            </svg>
+          )}
 
           {/* Mood Expression Badges */}
           {mood === 'thinking' && (

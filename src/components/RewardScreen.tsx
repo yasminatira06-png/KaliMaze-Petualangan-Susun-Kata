@@ -5,6 +5,7 @@ import { Star, RotateCcw, ArrowRight, Trophy, Sparkles, Award, Grid, Home } from
 import { playSound } from '../utils/audio';
 import { LevelResult } from '../types/game';
 import { GameButton } from './GameButton';
+import rewardPartyBgImg from '../assets/images/kalimaze_party_reward_bg_1793704479774.jpg';
 
 interface RewardScreenProps {
   result: LevelResult;
@@ -39,7 +40,7 @@ export const RewardScreen: React.FC<RewardScreenProps> = ({
       <div
         className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/src/assets/images/kalimaze_party_reward_bg_1793704479774.jpg')`,
+          backgroundImage: `url(${rewardPartyBgImg || '/assets/images/kalimaze_party_reward_bg_1793704479774.jpg'})`,
           backgroundColor: '#3b0764'
         }}
       >

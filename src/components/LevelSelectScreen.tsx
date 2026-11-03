@@ -5,6 +5,7 @@ import { Home, Lock, Star, Volume2, VolumeX, Sparkles, Music } from 'lucide-reac
 import { playSound } from '../utils/audio';
 import { LEVELS_DATA } from '../data/levelsData';
 import { GameButton } from './GameButton';
+import gardenBgImg from '../assets/images/kalimaze_garden_bg_1793704479441.jpg';
 
 interface LevelSelectScreenProps {
   unlockedLevels: number[];
@@ -64,7 +65,7 @@ export const LevelSelectScreen: React.FC<LevelSelectScreenProps> = ({
       <div
         className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat transition-all"
         style={{
-          backgroundImage: `url('/src/assets/images/kalimaze_garden_bg_1793704479441.jpg')`,
+          backgroundImage: `url(${gardenBgImg || '/assets/images/kalimaze_garden_bg_1793704479441.jpg'})`,
           backgroundColor: '#7dd3fc'
         }}
       >
